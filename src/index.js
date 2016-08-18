@@ -201,6 +201,9 @@ module.exports = React.createClass({
     initState.height = props.height || height
     initState.offset = {}
 
+    // Set autoplay as a state
+    initState.autoplay = props.autoplay
+
     if (initState.total > 1) {
       var setup = initState.index
       if ( props.loop ) {
@@ -226,7 +229,7 @@ module.exports = React.createClass({
   autoplay() {
     if(
       !Array.isArray(this.props.children)
-      || !this.props.autoplay
+      || !this.state.autoplay
       || this.state.isScrolling
       || this.state.autoplayEnd
     ) {
